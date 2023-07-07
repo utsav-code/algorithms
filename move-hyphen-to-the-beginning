@@ -1,0 +1,28 @@
+clsss moveHyphen { 
+
+  static void moveHyphenInFront(char str[])
+  {
+    int i = str.length-1;
+    // checking from last to front so using decreament 
+    for (int j = i; j >= 0; j--)
+        if (str[j] != '-')
+        {  
+            char a = str[i];
+            str[i] = str[j];
+            str[j] = str[j];
+            i--;   
+          //without using swap str[i--] = '-';
+        }
+    // Move spaces to be beginning
+    while (i >= 0)
+        str[i--] = '-';
+  }
+
+  public static void main(String[] args)
+  {
+    char str[] = "move-the-hypen".toCharArray();
+    moveHyphenInFront(str);
+    System.out.println(String.valueOf(str));
+  }
+
+} 
